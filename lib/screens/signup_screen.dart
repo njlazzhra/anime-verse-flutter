@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../config/routes.dart';
 import '../widgets/app_scaffold.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -13,8 +16,7 @@ class SignUpScreen extends StatelessWidget {
       body: LayoutBuilder(
         builder: (context, constraints) {
           final isLargeScreen = constraints.maxWidth > 600;
-          final maxWidth =
-          isLargeScreen ? 400.0 : constraints.maxWidth;
+          final maxWidth = isLargeScreen ? 400.0 : constraints.maxWidth;
 
           return SingleChildScrollView(
             child: Center(
@@ -119,7 +121,9 @@ class SignUpScreen extends StatelessWidget {
                       width: double.infinity,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go(AppRoutes.home);
+                        },
                         child: const Text('Sign Up'),
                       ),
                     ),
@@ -136,7 +140,9 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.go(AppRoutes.signIn);
+                          },
                           child: const Text(
                             'Sign In',
                             style: TextStyle(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../config/routes.dart';
 import '../widgets/app_scaffold.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -13,8 +16,7 @@ class SignInScreen extends StatelessWidget {
       body: LayoutBuilder(
         builder: (context, constraints) {
           final isLargeScreen = constraints.maxWidth > 600;
-          final maxWidth =
-          isLargeScreen ? 400.0 : constraints.maxWidth;
+          final maxWidth = isLargeScreen ? 400.0 : constraints.maxWidth;
 
           return SingleChildScrollView(
             child: Center(
@@ -110,7 +112,9 @@ class SignInScreen extends StatelessWidget {
                       width: double.infinity,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go(AppRoutes.home);
+                        },
                         child: const Text('Sign In'),
                       ),
                     ),
@@ -119,7 +123,9 @@ class SignInScreen extends StatelessWidget {
 
                     const Row(
                       children: [
-                        Expanded(child: Divider(color: Colors.white30)),
+                        Expanded(
+                          child: Divider(color: Colors.white30),
+                        ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 12),
                           child: Text(
@@ -127,7 +133,9 @@ class SignInScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
-                        Expanded(child: Divider(color: Colors.white30)),
+                        Expanded(
+                          child: Divider(color: Colors.white30),
+                        ),
                       ],
                     ),
 
@@ -159,7 +167,9 @@ class SignInScreen extends StatelessWidget {
                           style: TextStyle(color: Colors.white70),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.go(AppRoutes.signUp);
+                          },
                           child: const Text(
                             'Sign Up',
                             style: TextStyle(color: Colors.white),
